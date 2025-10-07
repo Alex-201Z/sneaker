@@ -1,15 +1,23 @@
-import { sneakersList } from '../datas/sneakersList.js'
+import { sneakersList } from '../datas/sneakersList';
+import SneakerItem from './SneakerItem';
+import '../styles/ShoppingList.css'
 
-function ShoppingList() {
+
+function ShoppingList({onAddToCart}) {
     return (
-        <div>
-            <ul>
+        <div className="shopping-list">
+            <h2>Alex Ondo</h2>
+            <div className="sneakers-grid">
                 {sneakersList.map((sneaker) => (
-                    <li key={sneaker.id}>{sneaker.nom}</li>
-                ))}
-            </ul>
+                <SneakerItem
+            key={sneaker.id}
+            sneakerData={sneaker}
+            onAddToCart={onAddToCart}
+          />
+        ))}
+            </div>
         </div>
-    )
+    );
 }
 
-export default ShoppingList
+export default ShoppingList;
