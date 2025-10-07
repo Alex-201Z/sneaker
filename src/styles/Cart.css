@@ -1,0 +1,33 @@
+.cart-item-image {
+position: relative;  /* Nécessaire pour le positionnement du badge */
+  background: rgb(15, 16, 65);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(17, 9, 66, 0.1);
+  padding: 18px;  /* Réduit de 20px à 15px */
+  transition: all 0.3s ease;
+  border: 1px solid #1310d4;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+}
+.cart-item {
+  position: relative;  /* Nécessaire pour le positionnement du badge */
+  background: rgb(151, 145, 145);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(31, 29, 29, 0.1);
+  padding: 18px;  /* Réduit de 20px à 15px */
+  transition: all 0.3s ease;
+  border: 1px solid #054fe2;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+}
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;  /* Espacement entre les items */
+  padding: 30px 50px;  /* padding pour l'espace */
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-items: center;  /* Centre les items dans leurs cellules */
+}

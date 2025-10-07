@@ -19,20 +19,22 @@ useEffect(() => {
   }
   const onRemoveFromCart = (sneaker) => {
     setCart(prevCart => {
-      // Check if the product already exists
       const existingItem = prevCart.find(item => item.id === sneaker.id);
-
       if (existingItem) {
-        // Increase the quantity
-        return prevCart.map(item =>
-          item.id === sneaker.id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        );
-      } else {
-        // delette product with quantity 1
-        return [...prevCart, { ...sneaker, quantity: 0 }];
+        if (existingItem.quantity > 1) {
+          // Décrémente la quantité
+          return prevCart.map(item =>
+            item.id === sneaker.id
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          );
+        } else {
+          // Supprime l'article du panier
+          return prevCart.filter(item => item.id !== sneaker.id);
+        }
       }
+      // Si l'article n'existe pas, ne rien faire
+      return prevCart;
     });
   };
   const addToCart = (sneaker) => {
@@ -69,4 +71,3 @@ useEffect(() => {
 }
 
 export default App;
- 
